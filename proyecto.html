@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="es-MX">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="proyecto.css">
+    <title>Ask</title>
+</head>
+<body>
+    <h1>Contesta las preguntas</h1>
+    <h1 id="countDownVar">30</h1>
+    <input type="button" value="Empezar" id="start" class="buttons" onclick="viewTimer()">
+    <ol>
+        <li>
+            <p>¿Cuál es el nombre del primer videojuego de la historia?</p>
+            <input type="text" id="quest1">
+        </li>
+        <li>
+            <p>¿Cuál es el idioma más hablado en el mundo?</p>
+            <input type="text" id="quest2">
+        </li>
+        <li>
+            <p>¿Cuál es el nombre del primer hombre en pisar la Luna?</p>
+            <input type="text" id="quest3">
+        </li>
+        <li>
+            <p>¿Cuál es el nombre del primer motor de búsqueda de la historia?</p>
+            <input type="text" id="quest4">
+        </li>
+        <li>
+            <p>¿Cuál es el nombre del planeta más cercano al Sol?</p>
+            <input type="text" id="quest5">
+        </li>
+    </ol>
+    <input type="button" value="Enviar" class="buttons" onclick="confirmation()">
+    <img src="./refresh.jpg" alt="refresh" id="refresh" onclick="restar()">
+    <script>
+        let timer = document.getElementById("countDownVar")
+        let seconds = 30 
+        let time = seconds  
+
+        /*Funciones para mostrar 30 segundos iniciales
+        Llamar las demás funciones mas*/
+        function viewTimer(){
+            timer.textContent = time
+            setInterval(updateTime, 1000)
+            setTimeout(lose, 1000 * 30)    
+        }
+        /*Actualizar en tiempo cada 1 segundo8*/
+        function updateTime(){
+                timer.textContent = seconds -= 1
+        }
+
+        /*Determinar que va a suceder al cumplirse el tiempo*/
+        function lose(){
+            alert('Perdiste!')
+        }
+        /*
+        Función que se active cuando el usuario haga click en el botón de confirmación y que se encargue de mostrar la fecha y respuestas*/
+        function confirmation(){
+            let respuesta1 = document.getElementById('quest1')
+            let respuesta2 = document.getElementById('quest2')
+            let respuesta3 = document.getElementById('quest3')
+            let respuesta4 = document.getElementById('quest4')
+            let respuesta5 = document.getElementById('quest5')
+            let date = new Date()
+            let now = date.toLocaleDateString('es-MX')
+            alert(now + 
+            "\nRespuestas" + 
+            '\n1.- "Tennis for Two". - Tu respuesta: '+ respuesta1.value + 
+            '\n2.- "Chino mandarín (1.117 millones de hablantes)". - Tu respuesta: ' + respuesta2.value+ 
+            '\n3.- "Neil Armstrong". - Tu respuesta: '+ respuesta3.value+ 
+            '\n4.- "Archie, lanzado en 1990". - Tu respuesta: '+ respuesta4.value+
+            '\n5.- "Mercurio". - Tu respuesta: '+ respuesta5.value)
+        }
+
+        /*Función para el botón reiniciar*/
+        function restar(){
+            location.reload()
+        }
+    </script>
+</body>
+</html>

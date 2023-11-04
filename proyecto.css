@@ -1,0 +1,46 @@
+body{
+    background-image: url(./img2.wallspic.com-purple-rainbow-violet-electric_blue-magenta-5120x2880.jpg);
+    width: 100%;
+}
+body{
+    display: grid;
+    place-content: center;
+}
+#refresh{
+    width: 30px;
+    display: grid;
+    margin: 50px;
+}
+#refresh:hover{
+    transform: rotate(3rad) scale(1.5);
+    transition: 3s;
+}
+#refresh:not(hover){
+    transform: rotate(-3rad) scale(1);
+    transition: 2s;
+}
+#countDownVar, h1{
+    margin: auto;
+}
+#start, .buttons{
+    width: 70px;
+    margin: auto;
+    margin-top: 60px;
+}
+.buttons{
+    width: 70px;
+    place-content: left;
+    border-radius: 5px;
+    border-style: solid;
+    border-width: 1px;
+    border-color: black;
+    box-shadow: 1px 1px 3px 1px rgba(0,0,0,0.21);
+}
+.buttons:hover{
+    transform: scale(1.1);
+    transition: 1.3s;
+}
+.buttons:not(hover){
+    transform: scale(1);
+    transition: 1.3s;
+}
